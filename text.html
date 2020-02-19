@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单标签！纯CSS实现动态晴阴雨雪</title>
+</head>
+
+<body>
+    <!-- <div class="weather sunny"></div> -->
+    <div class="weather cloudy"></div>
+    <!-- <div class="weather rainy"></div> -->
+    <!-- <div class="weather snowy"></div> -->
+</body>
+<style>
+.weather {
+    position: relative;
+    display: inline-block;
+    width: 180px;
+    height: 240px;
+    background: #23b7e5;
+    border-radius: 8px;
+}
+.cloudy:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 
+        #fff 22px -15px 0 6px,
+        #fff 57px -6px 0 2px, 
+        #fff 87px 4px 0 -4px,
+        #fff 33px 6px 0 6px,
+        #fff 61px 6px 0 2px,
+        #ccc 29px -23px 0 6px,
+        #ccc 64px -14px 0 2px,
+        #ccc 94px -4px 0 -4px;
+    z-index: 2;
+}
+.cloudy:before {
+    animation: cloudMove 2s linear infinite;
+}
+@keyframes cloudMove {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -60%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+</style>
+</html>
